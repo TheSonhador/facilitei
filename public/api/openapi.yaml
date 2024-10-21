@@ -1,0 +1,165 @@
+openapi: '3.0.1'
+info:
+    title: Api Facilitei
+    description: 
+      Esta Api tem como funcao servir como um serviço que cadastra usuários.
+      Cada usuário possui nome, idade, senha, sexo e amigos.
+      Esta Api ainda está em desenvolvimento.
+    version: '0.1'
+servers:
+  - url: http://{host}:{porta}/api
+    variables:
+      host:
+        default: localhost
+      porta:
+        default: '8000'
+paths:
+  /usuarios:
+    get:
+      summary: Acessar usuarios
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: O nome do usuário.
+                  example: Jorge
+                idade:
+                  type: integer
+                  description: A idade do usuário.
+                  example: 18
+                senha:
+                  type: string
+                  description: A senha da conta do usuário.
+                  example: pa156af
+                admin:
+                  type: boolean
+                  description: Se o usuário é um admin (true) ou um usuário normal (false).
+                  example: false
+                pontuacao:
+                  type: number
+                  description: a pontuacao atual do usuário.
+                  example: 19546
+      responses:
+        201:
+          description: usuario criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /usuarios/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: 
+          type: string
+    get:
+      summary: Acessa as informacoes de um usuario
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  nome:
+                    type: string
+                  idade:
+                    type: integer
+                  senha:
+                    type: string
+                  admin:
+                    type: boolean
+                  pontuacao:
+                    type: number
+        404:
+          description: Esse usuario nao foi encontrado
+
+    delete:
+      summary: Apaga um usuario
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse usuario nao foi encontrado
+
+    put:
+      summary: Altera um usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: O nome do usuário.
+                  example: Jorge
+                idade:
+                  type: integer
+                  description: A idade do usuário.
+                  example: 18
+                senha:
+                  type: string
+                  description: A senha da conta do usuário.
+                  example: pa156af
+                admin:
+                  type: boolean
+                  description: Se o usuário é um admin (true) ou um usuário normal (false).
+                  example: false
+                pontuacao:
+                  type: number
+                  description: a pontuacao atual do usuário.
+                  example: 19546
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
+
+components:
+  schemas:  
+    usuario:
+      type: object
+      description: Um usuario para armazenar objetos.
+      properties:
+        nome:
+          type: string
+          description: O nome do usuário.
+          example: Jorge
+        idade:
+          type: integer
+          description: A idade do usuário.
+          example: 18
+        senha:
+          type: string
+          description: A senha da conta do usuário.
+          example: pa156af
+        admin:
+          type: boolean
+          description: Se o usuário é um admin (1) ou um usuário normal (0).
+          example: 1
+        pontuacao:
+          type: number
+          description: a pontuacao atual do usuário.
+          example: 19546
