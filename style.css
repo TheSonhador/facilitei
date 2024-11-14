@@ -128,10 +128,11 @@ body{
   background-color: var(--hover-clr);
 }
 
-/* main{
-  padding: min(30px, 7%);
+main{
+  background-color: #635D59;
 }
-main p{
+
+/* main p{
   color: var(--secondary-text-clr);
   margin-top: 5px;
   margin-bottom: 15px;
@@ -139,7 +140,6 @@ main p{
 
 .container{
   padding: min(30px, 7%);
-  background-color: #635D59;
 }
 
 #title{
@@ -181,11 +181,10 @@ main p{
 
 .subjects-content {
   display: flex;
-  width: 100%;
+  width: auto;
   flex-direction: column;
   align-items: start;
-  margin: 48px 0;
-  /* padding: 0 66px; */
+  padding: 30px;
 }
 
 .subject-category {
@@ -206,17 +205,19 @@ main p{
 
 .subject-grid {
   margin-top: 18px;
-  width: 100%;
-  max-width: 763px;
+  width: 90%;
+  justify-content: space-between;
 }
 
 .subject-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 40px;
-  gap: 20px;
-  display: flex;
+  gap: 100px;
 }
 
 .subject-card {
+  cursor: pointer;
   border-radius: 25px;
   display: flex;
   flex-grow: 1;
@@ -231,7 +232,7 @@ main p{
   aspect-ratio: 1;
   object-fit: contain;
   object-position: center;
-  width: 141px;
+  width: 150px;
   align-self: center;
   max-width: 100%;
 }
