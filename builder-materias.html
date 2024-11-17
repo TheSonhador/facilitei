@@ -1,0 +1,463 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .subjects-container {
+      background-color: #fff;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      background-color: #f6f6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #201f20;
+      padding: 49px 0 1816px 23px;
+      font: 400 30px Onest, sans-serif;
+      width: 23%;
+    }
+
+    .logo {
+      aspect-ratio: 1.63;
+      object-fit: contain;
+      width: 290px;
+      align-self: center;
+      max-width: 100%;
+    }
+
+    .nav-item {
+      display: flex;
+      gap: 19px;
+      margin-top: 25px;
+    }
+
+    .nav-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 54px;
+    }
+
+    .nav-text {
+      margin: auto 0;
+    }
+
+    .active-indicator {
+      aspect-ratio: 0.08;
+      object-fit: contain;
+      width: 6px;
+    }
+
+    .main-content {
+      background-color: #635d59;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      width: 77%;
+      padding: 49px 80px 136px;
+    }
+
+    .content-wrapper {
+      border-radius: 50px;
+      background-color: #262626;
+      display: flex;
+      padding-bottom: 138px;
+      flex-direction: column;
+    }
+
+    .header {
+      border-radius: 50px;
+      background-color: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-family: Onest, sans-serif;
+      color: #000;
+      font-weight: 400;
+      padding: 40px 80px;
+    }
+
+    .header-title {
+      font-size: 64px;
+    }
+
+    .header-description {
+      font-size: 28px;
+      margin-top: 6px;
+    }
+
+    .subjects-list {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 50px 0 -28px;
+      padding: 0 69px;
+    }
+
+    .subject-category {
+      display: flex;
+      gap: 15px;
+      color: #fff;
+      font: 400 30px Onest, sans-serif;
+    }
+
+    .category-indicator {
+      aspect-ratio: 0.09;
+      object-fit: contain;
+      width: 6px;
+    }
+
+    .subject-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .subject-card {
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      font: 400 26px Onest, sans-serif;
+      width: calc(33.33% - 14px);
+    }
+
+    .subject-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      width: 130px;
+      margin: 15px 0;
+    }
+
+    .subject-name {
+      border-radius: 0 0 25px 25px;
+      width: 100%;
+      text-align: center;
+      padding: 11px 0;
+    }
+
+    @media (max-width: 991px) {
+      .subjects-container {
+        flex-direction: column;
+      }
+
+      .sidebar,
+      .main-content {
+        width: 100%;
+      }
+
+      .sidebar {
+        padding-bottom: 100px;
+      }
+
+      .main-content {
+        padding: 0 20px 100px;
+      }
+
+      .header {
+        padding: 0 20px;
+      }
+
+      .header-title {
+        font-size: 40px;
+      }
+
+      .subjects-list {
+        margin: 40px 0 10px;
+        padding: 0 20px;
+      }
+
+      .subject-grid {
+        flex-direction: column;
+      }
+
+      .subject-card {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
+  </style>
+  <body>
+    <section class="subjects-container">
+      <nav class="sidebar">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/a70216d7670e199f4661d4363e608d82f6c53df60fc6844b41d6f857c097fe2a?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+          alt="Logo"
+          class="logo"
+        />
+        <div class="nav-item">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/89972eb5325d064d49688efa63088567f325396815d04a6b55be9b63c0fd7cbf?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="nav-icon"
+          />
+          <span class="nav-text">INÍCIO</span>
+        </div>
+        <div class="nav-item">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/870195638c9b00d6cfba9e2d76a008df1154fab72be0979b950107f70b5204f7?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="nav-icon"
+          />
+          <span class="nav-text">MATÉRIAS</span>
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bbc315a2709d13e61ff556784f47a6463000466b56e5cb5cf5297ff19ba67c23?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="active-indicator"
+          />
+        </div>
+        <div class="nav-item">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/566f363d085aaa6d35e3108311ff9aed849f81dba6b744b86a89b767c2d92a39?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="nav-icon"
+          />
+          <span class="nav-text">DESEMPENHO</span>
+        </div>
+        <div class="nav-item">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/947d47a4737220bc1b6975d55d3898432c1db87c01b1eef4d35ed25504aeaae7?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="nav-icon"
+          />
+          <span class="nav-text">PERFIL</span>
+        </div>
+        <div class="nav-item">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d698d9b040b702ab14237efb46acb84ae775e4c8f466ef016bc9c29f5f26d0ef?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+            alt=""
+            class="nav-icon"
+          />
+          <span class="nav-text">SAIR</span>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <div class="content-wrapper">
+          <header class="header">
+            <h1 class="header-title">Matérias</h1>
+            <p class="header-description">
+              Consulte o material de apoio, questões e assuntos de cada
+              disciplina.
+            </p>
+          </header>
+
+          <section class="subjects-list">
+            <div class="subject-category">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ad2631d789106cb2ede5750227e1f372dc5b445adadff079fa9689501a12315?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                alt=""
+                class="category-indicator"
+              />
+              <h2>Matemática</h2>
+            </div>
+            <div class="subject-grid">
+              <div class="subject-card" style="background-color: #a576de">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/b258857c8174535195b977d7412a41b0c4678b7fe30efea53dff924c0ec4f898?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Matemática icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #521a7c">
+                  Matemática
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #a576de">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/438bffd706504aefc26cc0939a2b0024c4f05b971ff128a0dbea5b5036492644?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Matemática Básica icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #521a7c">
+                  Matemática Básica
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-category">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b577810e76e3e8cb2459b2cac5330a9dc89dcdf78febde7ed915d91d8fcaefd?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                alt=""
+                class="category-indicator"
+              />
+              <h2>Ciências da Natureza</h2>
+            </div>
+            <div class="subject-grid">
+              <div class="subject-card" style="background-color: #cafadc">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c30badf3f1c1a7261806975c88b9a7e00a40fddba05f5fbf83a6e9d247c571b2?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Biologia icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #0a572a">
+                  Biologia
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #cafadc">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c68cc446516458f693b99262c82b0709985e96eb165d613caf5f1ed2c2ca7d00?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Química icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #0a572a">
+                  Química
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #cafadc">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/a12020569dd42d9733cfb0ed0665dfb59a0c625f476a060c0ea03c311d0778d9?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Física icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #0a572a">
+                  Física
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-category">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/100a78dc51257224fef50f5f5e7850d5eab2fcb1da2809dc674c76db2537ab5f?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                alt=""
+                class="category-indicator"
+              />
+              <h2>Ciências Humanas</h2>
+            </div>
+            <div class="subject-grid">
+              <div class="subject-card" style="background-color: #fadcca">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/db14240ed723af122ca3e438a5b082a9fd7ae4548975991c71bd6bc0d611e0a5?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="História icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #2c1502">
+                  História
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #fadcca">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/aae19cd5a48fe214fc4e54f5bd8cd47bb468193ec9f07a7a2fa0bcaad8797c15?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Geografia icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #2c1502">
+                  Geografia
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #fadcca">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/e5ce3ea2fdbef96114c8931b3eec56d1d9fcda67c74b5644864ea124dd9d7f93?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Filosofia icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #2c1502">
+                  Filosofia
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #fadcca">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/32e0bcee1ccd44f044012d06facfcbf5615964a23b1bf564368a7da364042313?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Sociologia icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #2c1502">
+                  Sociologia
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #fadcca">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/92a6ed0de3eb2358163b3b361800fdee7285a4169c79d78045a258f0779ebf9f?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Atualidades icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #2c1502">
+                  Atualidades
+                </div>
+              </div>
+            </div>
+
+            <div class="subject-category">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d5ea1abfa97e726de6c3c4e2a28f6899a80b94d0f159e5ab63014ed82df2d50?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                alt=""
+                class="category-indicator"
+              />
+              <h2>Linguagens</h2>
+            </div>
+            <div class="subject-grid">
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/63f3768e72b46e7e18e66d924329c1c97d6c1046c286f8acb88cfb1887f5ec8b?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Português icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Português
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/4209e997b238a44fcc1f833e023448c215ace90f3d25a407fe2271e03d4b643b?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Literatura icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Literatura
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/6348a4484cbcdbefd32def83d77d756b0eca6ddaca5d4d0f54d575d43b7230c0?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Artes icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Artes
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/144c1e5b251f929ee3e8121cd42e460bb21b04e758935de8abec62d750aba34d?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Inglês icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Inglês
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/af951cbad13914e80a229a692f999ab591398180897426396916d929b3e4904f?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Espanhol icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Espanhol
+                </div>
+              </div>
+              <div class="subject-card" style="background-color: #e5d9a5">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/96be1bb7fa53e16fac5d07e9beb023b1669f9d22cae33d1821a9143fe3bf6fca?placeholderIfAbsent=true&apiKey=568e5aea885f40bb912321011c523fe7"
+                  alt="Redação icon"
+                  class="subject-icon"
+                />
+                <div class="subject-name" style="background-color: #dfbf09">
+                  Redação
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </section>
+  </body>
+</html>
