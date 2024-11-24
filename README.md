@@ -5,6 +5,9 @@ Um projeto desenvolvido pelos alunos de informática do IFRN - Caicó
 
  - [Figma Design](https://www.figma.com/design/Fh65WfciC0Ic9AgSXavz0I/Facilitei?m=auto&t=gNF0jmiT0qmO69Ln-6)
  - [Figma Jamboard](https://www.figma.com/board/H8ywReeM8rGV618qiA8G3J/Cronograma-de-execu%C3%A7%C3%A3o?t=gNF0jmiT0qmO69Ln-6)
+## Documentação do Projeto
+
+ - [Google Drive Documentação](https://drive.google.com/drive/folders/1fzuSV4b3YGBLWKM5St8SzbTLprnMYY2f?usp=drive_link)
 ## Telas
 
 ![Homepage](https://i.ibb.co/sKsb4BF/imagem-2024-11-13-162939599.png)
