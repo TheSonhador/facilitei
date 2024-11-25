@@ -136,6 +136,108 @@ paths:
         404:
           description: Nao encontrado
 
+  /administradores:
+    get:
+      summary: Acessar admins
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                admin_nome:
+                  type: string
+                  description: O nome do admin.
+                  example: Jorge
+                admin_email:
+                  type: integer
+                  description: O email do admin.
+                  example: teste@teste.com
+                admin_senha:
+                  type: string
+                  description: A senha da conta do admin.
+                  example: pa156af
+      responses:
+        201:
+          description: admin criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /administradores/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um administrador
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  admin_nome:
+                    type: string
+                  admin_email:
+                    type: string
+                  admin_senha:
+                    type: string
+        404:
+          description: Esse admin nao foi encontrado
+
+    delete:
+      summary: Apaga um admin
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse admin nao foi encontrado
+
+    put:
+      summary: Altera um admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                admin_nome:
+                  type: string
+                  description: O nome do admin.
+                  example: Jorge
+                admin_email:
+                  type: integer
+                  description: O email do admin.
+                  example: teste@teste.com
+                admin_senha:
+                  type: string
+                  description: A senha da conta do admin.
+                  example: pa156af
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
   /videos:
     get:
       summary: Acessar videos

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradoresController;
 use App\Http\Controllers\ConteudosController;
 use App\Http\Controllers\DisciplinasController;
 use App\Http\Controllers\MetasEstudoController;
@@ -17,3 +18,4 @@ Route::apiResource('disciplinas', DisciplinasController::class);
 Route::apiResource('conteudos', ConteudosController::class);
 Route::apiResource('metas', MetasEstudoController::class);
 Route::apiResource('sessoes', SessoesEstudoController::class);
+Route::apiResource('administradores', AdministradoresController::class);
