@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('usuarios');
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('relatorios_desempenhos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nome');
-            $table->string('senha');
-            $table->string('email');
-            $table->integer('idade');
-            $table->float('pontuacao');
-            $table->string('google_id');
+            $table->float('rel_tempo_total_estudo');
+            $table->float('rel_metas_concluidas');
+
+            $table->unsignedInteger('rel_usu_id');
+            $table->foreign('rel_usu_id')->references('id')->on('usuarios');
         });
     }
 
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('relatorios_desempenhos');
     }
 };

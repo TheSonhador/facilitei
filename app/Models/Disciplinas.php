@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Disciplinas extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nome', 'idade', 'senha', 'pontuacao', 'email', 'google_id'
+        'disc_descricao', 'disc_nome'
     ];
 }

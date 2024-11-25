@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('usuarios');
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('disciplinas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nome');
-            $table->string('senha');
-            $table->string('email');
-            $table->integer('idade');
-            $table->float('pontuacao');
-            $table->string('google_id');
+            $table->string('disc_nome');
+            $table->string('disc_descricao');
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('disciplinas');
     }
 };

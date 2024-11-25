@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Relatorios_desempenho extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nome', 'idade', 'senha', 'pontuacao', 'email', 'google_id'
+        'rel_tempo_total_estudo', 'rel_metas_concluidas', 'rel_usu_id'
     ];
+
 }
