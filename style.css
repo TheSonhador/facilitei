@@ -434,6 +434,14 @@ CSS DA SECTION DAS MATERIAS
   background-color: #2C1502;
 }
 
+.linguagens-card {
+ background-color: #E5D9A5;
+}
+
+.linguagens-name {
+  background-color: #DFBF09;
+}
+
 @media (max-width: 991px) {
   .subjects-section {
     max-width: 100%;
