@@ -9,6 +9,7 @@ const Desempenho = () => {
   const [dados, setDados] = useState([]);
   const usuario = localStorage.getItem("usuario");
   const dadosUsuario = JSON.parse(usuario);
+  console.log(dadosUsuario[0].id)
 
   useEffect(() => {
     const fetchData = async () => {
