@@ -73,7 +73,7 @@ const Login = () => {
         <div className='content-intro-section'>
           <img className="logo" src={logo} width="350px" alt="Logo" />
           <p id='text-intro'>Bem-vindo! Faça seu login para uma melhor experiência.</p>
-          <p>Ainda não tem uma conta? <a href='cadastro'>Cadastrar-se</a></p>
+          <p>Ainda não tem uma conta? <a href='/'>Cadastrar-se</a></p>
         </div>
       </div>
 
