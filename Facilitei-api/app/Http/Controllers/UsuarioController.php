@@ -23,10 +23,8 @@ class UsuarioController extends Controller
         $email = $request->input('email');
         $p = Usuario::create(['email' => $email, 'admin' => $admin,'nome' => $nome, 'idade' => $idade, 'senha' => $senha, 'pontuacao' => $pontuacao]);
         $id = $p->id;
-        return response(
-            ['location' => route('usuarios.show', $id)], // mostra o "id" da pessoa no cmd
-            201
-        );
+        $usuario = Usuario::where('email', $email)->where('senha', $senha)->get();
+        return $usuario;
     }
 
     public function show(Usuario $usuario)
