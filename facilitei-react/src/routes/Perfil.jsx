@@ -5,11 +5,13 @@ import axios from 'axios';
 
 const Perfil = ({
 }) => {
+  const navigate = useNavigate();
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [isFinalConfirmation, setFinalConfirmation] = useState(false);
 
   const usuario = localStorage.getItem("usuario");
   const dadosUsuario = JSON.parse(usuario);
+  console.log(dadosUsuario)
 
   const handleDeleteAccount = () => {
 
@@ -44,8 +46,8 @@ const Perfil = ({
                 <h2>Dados do usuário</h2>
 
                 <div className="dados-gerais">
-                <p>Nome: {dadosUsuario[0].nome}</p>
-                <p>Email: {dadosUsuario[0].email}</p>
+                <p>Nome: {dadosUsuario[0].nome ? dadosUsuario[0].nome : dadosUsuario.nome}</p>
+                <p>Email: {dadosUsuario[0].email ? dadosUsuario[0].email : dadosUsuario.email}</p>
                 </div>
 
                 <div className="options">
