@@ -1,0 +1,23 @@
+.desempenho {
+    width: 80%;
+    margin: 3% auto;
+    background-color: #ffebd2;
+}
+
+.desempenho h1 {
+    color: #252525;
+    background-color: rgb(248, 217, 175);
+    padding-inline: 20px;
+    padding: 20px;
+}
+
+.desempenho h4{
+    color: #884902;
+    background-color: rgb(248, 214, 175);
+    padding-inline: 20px;
+    padding: 20px;
+}
+
+.desempenho span {
+    color: #64360a;
+}

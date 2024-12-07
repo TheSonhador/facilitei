@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios"; // é necessário para conectar com a api
 import vetorHumanas from "../assets/img/vector-humanas.png";
 import vetorLinguagens from "../assets/img/vector-linguagens.png";
+import { Link } from 'react-router-dom';
 
 const Materias = () => {
 
@@ -55,7 +56,9 @@ const Materias = () => {
                     alt="Ícone de Matemática"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name math-name">Matemática</h3>
+                  <h3 class="subject-name science-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[0].id}>{dados[0] && dados[0].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card math-card">
                   <img
@@ -63,7 +66,9 @@ const Materias = () => {
                     alt="Ícone de Matemática Básica"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name math-name">Matemática Básica</h3>
+                  <h3 class="subject-name science-name">
+                    {dados[0] ? <Link to={"/disciplinas/" + dados[1].id}>{dados[1] && dados[1].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
               </div>
             </div>
@@ -84,7 +89,9 @@ const Materias = () => {
                     alt="Ícone de Biologia"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name science-name">Biologia</h3>
+                  <h3 class="subject-name science-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[2].id}>{dados[2] && dados[2].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card science-card">
                   <img
@@ -92,7 +99,9 @@ const Materias = () => {
                     alt="Ícone de Química"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name science-name">Química</h3>
+                  <h3 class="subject-name science-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[3].id}>{dados[3] && dados[3].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card science-card">
                   <img
@@ -100,7 +109,9 @@ const Materias = () => {
                     alt="Ícone de Física"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name science-name">{dados[0] && dados[0].disc_nome}</h3>
+                  <h3 class="subject-name science-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[4].id}>{dados[4] && dados[4].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
               </div>
             </div>
@@ -121,7 +132,9 @@ const Materias = () => {
                     alt="Ícone de Historia"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name humanas-name">História</h3>
+                  <h3 class="subject-name humanas-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[5].id}>{dados[5] && dados[5].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card humanas-card">
                   <img
@@ -129,7 +142,9 @@ const Materias = () => {
                     alt="Ícone de Geografia"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name humanas-name">Geografia</h3>
+                  <h3 class="subject-name humanas-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[6].id}>{dados[6] && dados[6].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card humanas-card">
                   <img
@@ -137,7 +152,9 @@ const Materias = () => {
                     alt="Ícone de Filosofia"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name humanas-name">Filosofia</h3>
+                  <h3 class="subject-name humanas-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[7].id}>{dados[7] && dados[7].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card humanas-card">
                   <img
@@ -145,7 +162,9 @@ const Materias = () => {
                     alt="Ícone de Sociologia"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name humanas-name">Sociologia</h3>
+                  <h3 class="subject-name humanas-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[8].id}>{dados[8] && dados[8].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card humanas-card">
                   <img
@@ -153,7 +172,9 @@ const Materias = () => {
                     alt="Ícone de Atualidades"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name humanas-name">Atualidades</h3>
+                  <h3 class="subject-name humanas-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[9].id}>{dados[9] && dados[9].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
               </div>
             </div>
@@ -174,7 +195,9 @@ const Materias = () => {
                     alt="Ícone de Portugues"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Português</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[10].id}>{dados[10] && dados[10].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card linguagens-card">
                   <img
@@ -182,7 +205,9 @@ const Materias = () => {
                     alt="Ícone de Literatura"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Literatura</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[11].id}>{dados[11] && dados[11].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card linguagens-card">
                   <img
@@ -190,7 +215,9 @@ const Materias = () => {
                     alt="Ícone de Artes"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Artes</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[12].id}>{dados[12] && dados[12].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card linguagens-card">
                   <img
@@ -198,7 +225,9 @@ const Materias = () => {
                     alt="Ícone de Ingles"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Inglês</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[13].id}>{dados[13] && dados[13].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card linguagens-card">
                   <img
@@ -206,7 +235,9 @@ const Materias = () => {
                     alt="Ícone de Espanhol"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Espanhol</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[14].id}>{dados[14] && dados[14].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
                 <article class="subject-card linguagens-card">
                   <img
@@ -214,7 +245,9 @@ const Materias = () => {
                     alt="Ícone de Redacao"
                     class="subject-icon"
                   />
-                  <h3 class="subject-name linguagens-name">Redação</h3>
+                  <h3 class="subject-name linguagens-name">
+                  {dados[0] ? <Link to={"/disciplinas/" + dados[15].id}>{dados[15] && dados[15].disc_nome}</Link> : <p></p>}
+                  </h3>
                 </article>
               </div>
             </div>
