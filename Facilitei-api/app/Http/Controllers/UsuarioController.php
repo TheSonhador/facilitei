@@ -62,6 +62,10 @@ class UsuarioController extends Controller
         if ($email)
             $usuario->email = $email;
         $usuario->save();
+
+        $usuario2 = Usuario::where('email', $email)->where('senha', $senha)->get();
+
+        return $usuario2;
     }
 
     public function destroy(Usuario $usuario)
