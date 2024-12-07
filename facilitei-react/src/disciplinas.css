@@ -1,0 +1,47 @@
+.subjects-header {
+    margin-bottom: 15px;
+}
+
+.content-row {
+    display: flex;
+    width: 100%;
+    max-width: 1199px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px;
+    color: #fff;
+    font: 400 20px Onest, sans-serif;
+}
+
+.content-row a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: rgb(250, 210, 125);
+}
+
+.video {
+    background-color: whitesmoke;
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.video:hover{
+    background-color: #d6d2cf;
+}
+.video i {
+    color: #FF6C03;
+    font-size: 30px;
+}
+
+.description {
+    margin-left: 30px;
+    color: #fff;
+    font: 20px Onest, sans-serif;
+}
+
+.videobox {
+    margin: 30px;
+}

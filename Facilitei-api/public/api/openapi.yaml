@@ -1,0 +1,1070 @@
+openapi: '3.0.1'
+info:
+    title: Api Facilitei
+    description:
+      Esta Api tem como funcao servir como um serviço que cadastra usuários.
+      Cada usuário possui nome, idade, senha, sexo e amigos.
+      Esta Api ainda está em desenvolvimento.
+    version: '0.1'
+servers:
+  - url: http://{host}:{porta}/api
+    variables:
+      host:
+        default: localhost
+      porta:
+        default: '8000'
+paths:
+  /usuarios:
+    get:
+      summary: Acessar usuarios
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: O nome do usuário.
+                  example: Jorge
+                idade:
+                  type: integer
+                  description: A idade do usuário.
+                  example: 18
+                senha:
+                  type: string
+                  description: A senha da conta do usuário.
+                  example: pa156af
+                admin:
+                  type: boolean
+                  description: Se o usuário é um admin (true) ou um usuário normal (false).
+                  example: false
+                pontuacao:
+                  type: number
+                  description: a pontuacao atual do usuário.
+                  example: 19546
+      responses:
+        201:
+          description: usuario criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /usuarios/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um usuario
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  nome:
+                    type: string
+                  idade:
+                    type: integer
+                  senha:
+                    type: string
+                  admin:
+                    type: boolean
+                  pontuacao:
+                    type: number
+        404:
+          description: Esse usuario nao foi encontrado
+
+    delete:
+      summary: Apaga um usuario
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse usuario nao foi encontrado
+
+    put:
+      summary: Altera um usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: O nome do usuário.
+                  example: Jorge
+                idade:
+                  type: integer
+                  description: A idade do usuário.
+                  example: 18
+                senha:
+                  type: string
+                  description: A senha da conta do usuário.
+                  example: pa156af
+                admin:
+                  type: boolean
+                  description: Se o usuário é um admin (true) ou um usuário normal (false).
+                  example: false
+                pontuacao:
+                  type: number
+                  description: a pontuacao atual do usuário.
+                  example: 19546
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
+  /administradores:
+    get:
+      summary: Acessar admins
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                admin_nome:
+                  type: string
+                  description: O nome do admin.
+                  example: Jorge
+                admin_email:
+                  type: integer
+                  description: O email do admin.
+                  example: teste@teste.com
+                admin_senha:
+                  type: string
+                  description: A senha da conta do admin.
+                  example: pa156af
+      responses:
+        201:
+          description: admin criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /administradores/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um administrador
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  admin_nome:
+                    type: string
+                  admin_email:
+                    type: string
+                  admin_senha:
+                    type: string
+        404:
+          description: Esse admin nao foi encontrado
+
+    delete:
+      summary: Apaga um admin
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse admin nao foi encontrado
+
+    put:
+      summary: Altera um admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                admin_nome:
+                  type: string
+                  description: O nome do admin.
+                  example: Jorge
+                admin_email:
+                  type: integer
+                  description: O email do admin.
+                  example: teste@teste.com
+                admin_senha:
+                  type: string
+                  description: A senha da conta do admin.
+                  example: pa156af
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
+  /videos:
+    get:
+      summary: Acessar videos
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                video_url:
+                  type: string
+                  description: A url do video.
+                  example: https://www.youtube.com/watch?v=zQcJaAibb8c&ab_channel=WDEV
+                video_tema:
+                  type: string
+                  description: O tema do video.
+                  example: Tutorial de Laravel
+                video_descricao:
+                  type: string
+                  description: A descricao do video.
+                  example: Este video eh um tutorial de como usar o Laravel com foco em iniciantes
+      responses:
+        201:
+          description: video criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /videos/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um video
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  video_url:
+                    type: string
+                  video_tema:
+                    type: string
+                  video_descricao:
+                    type: string
+        404:
+          description: Esse video nao foi encontrado
+
+    delete:
+      summary: Apaga um video
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse video nao foi encontrado
+
+    put:
+      summary: Altera um video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                video_url:
+                  type: string
+                  description: A url do video.
+                  example: https://www.youtube.com/watch?v=zQcJaAibb8c&ab_channel=WDEV
+                video_tema:
+                  type: string
+                  description: O tema do video.
+                  example: Tutorial de Laravel
+                video_descricao:
+                  type: string
+                  description: A descricao do video.
+                  example: Este video eh um tutorial de como usar o Laravel com foco em iniciantes
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
+  /relatorios:
+    get:
+      summary: Acessar relatorios
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um relatorio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rel_tempo_total_estudo:
+                  type: number
+                  description: O tempo total de estudo em horas.
+                  example: 10
+                rel_metas_concluidas:
+                  type: number
+                  description: O numero de metas concluidas.
+                  example: 2
+                rel_usu_id:
+                  type: integer
+                  description: O id do usuario que tem esse relatorio.
+                  example: 3
+      responses:
+        201:
+          description: relatorio criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+        500:
+          description: o usuario com o id enviado nao existe
+  /relatorios/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um relatorio
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  rel_tempo_total_estudo:
+                    type: number
+                  rel_metas_concluidas:
+                    type: number
+                  rel_usu_id:
+                    type: integer
+        404:
+          description: Esse relatorio nao foi encontrado
+
+    delete:
+      summary: Apaga um relatorio
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse relatorio nao foi encontrado
+
+    put:
+      summary: Altera um relatorio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rel_tempo_total_estudo:
+                  type: number
+                  description: O tempo total de estudo em horas.
+                  example: 10
+                rel_metas_concluidas:
+                  type: number
+                  description: O numero de metas concluidas.
+                  example: 2
+                rel_usu_id:
+                  type: integer
+                  description: O id do usuario que tem esse relatorio.
+                  example: 3
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+        500:
+          description: o usuario com o id enviado nao existe
+
+  /disciplinas:
+    get:
+      summary: Acessar disciplinas
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar uma disciplina
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disc_nome:
+                  type: string
+                  description: O nome da disciplina.
+                  example: Matematica
+                disc_descricao:
+                  type: string
+                  description: A descricao da disciplina.
+                  example: uma disciplina de exatas com diversos conteudos
+      responses:
+        201:
+          description: disciplina criada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+  /disciplinas/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de uma disciplina
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  disc_nome:
+                    type: string
+                  disc_descricao:
+                    type: string
+        404:
+          description: Essa disciplina nao foi encontrado
+
+    delete:
+      summary: Apaga uma disciplina
+      responses:
+        200:
+          description: OK
+        404:
+          description: Essa disciplina nao foi encontrado
+
+    put:
+      summary: Altera uma disciplina
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disc_nome:
+                  type: string
+                  description: O nome da disciplina.
+                  example: Matematica
+                disc_descricao:
+                  type: string
+                  description: A descricao da disciplina.
+                  example: uma disciplina de exatas com diversos conteudos
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+
+  /conteudos:
+    get:
+      summary: Acessar conteudos
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar um conteudo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cont_titulo:
+                  type: string
+                  description: O titulo do conteudo.
+                  example: Analise combinatoria
+                cont_descricao:
+                  type: string
+                  description: A descricao do conteudo.
+                  example: Esse conteudo trata sobre assuntos como permutacao e a propria analise combinatoria
+                cont_disc_id:
+                  type: integer
+                  description: O id da disciplina que tem esse conteudo.
+                  example: 1
+                cont_video_id:
+                  type: integer
+                  description: O id do video que tem relacao com esse conteudo.
+                  example: 3
+      responses:
+        201:
+          description: conteudo criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+        500:
+          description: o video ou disciplina com o id enviado nao existe
+  /conteudos/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um conteudo
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  cont_titulo:
+                    type: string
+                  cont_descricao:
+                    type: string
+                  cont_disc_id:
+                    type: integer
+                  cont_video_id:
+                    type: integer
+        404:
+          description: Esse conteudo nao foi encontrado
+
+    delete:
+      summary: Apaga um conteudo
+      responses:
+        200:
+          description: OK
+        404:
+          description: Esse conteudo nao foi encontrado
+
+    put:
+      summary: Altera um conteudo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cont_titulo:
+                  type: string
+                  description: O titulo do conteudo.
+                  example: Analise combinatoria
+                cont_descricao:
+                  type: string
+                  description: A descricao do conteudo.
+                  example: Esse conteudo trata sobre assuntos como permutacao e a propria analise combinatoria
+                cont_disc_id:
+                  type: integer
+                  description: O id da disciplina que tem esse conteudo.
+                  example: 1
+                cont_video_id:
+                  type: integer
+                  description: O id do video que tem relacao com esse conteudo.
+                  example: 3
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+        500:
+          description: o video ou disciplina com o id enviado nao existe
+
+  /metas:
+    get:
+      summary: Acessar metas
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar uma meta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meta_titulo:
+                  type: string
+                  description: titulo da meta.
+                  example: meta teste
+                meta_descricao:
+                  type: string
+                  description: descricao da meta.
+                  example: meta criada para testes
+                meta_categoria:
+                  type: string
+                  description: a categoria da meta.
+                  example: meta de estudo de matematica
+                meta_data_limite:
+                  type: string
+                  description: a data limite da meta.
+                  example: 24/11/2024
+                meta_concluida:
+                  type: boolean
+                  description: Se a meta foi concluida (true) ou nao (false).
+                  example: false
+                meta_usu_id:
+                  type: integer
+                  description: O id do usuario que tem essa meta.
+                  example: 2
+      responses:
+        201:
+          description: meta criada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+        500:
+          description: o usuario com o id enviado nao existe
+  /metas/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de um relatorio
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  meta_titulo:
+                    type: string
+                  meta_descricao:
+                    type: string
+                  meta_categoria:
+                    type: string
+                  meta_data_limite:
+                    type: string
+                  meta_concluida:
+                    type: boolean
+                  meta_usu_id:
+                    type: integer
+        404:
+          description: Esse meta nao foi encontrada
+
+    delete:
+      summary: Apaga uma meta
+      responses:
+        200:
+          description: OK
+        404:
+          description: Essa meta nao foi encontrada
+
+    put:
+      summary: Altera uma meta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meta_titulo:
+                  type: string
+                  description: titulo da meta.
+                  example: meta teste
+                meta_descricao:
+                  type: string
+                  description: descricao da meta.
+                  example: meta criada para testes
+                meta_categoria:
+                  type: string
+                  description: a categoria da meta.
+                  example: meta de estudo de matematica
+                meta_data_limite:
+                  type: string
+                  description: a data limite da meta.
+                  example: 24/11/2024
+                meta_concluida:
+                  type: boolean
+                  description: Se a meta foi concluida (true) ou nao (false).
+                  example: false
+                meta_usu_id:
+                  type: integer
+                  description: O id do usuario que tem essa meta.
+                  example: 2
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+        500:
+          description: o usuario com o id enviado nao existe
+
+  /sessoes:
+    get:
+      summary: Acessar sessoes
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar uma sessao
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessao_inicio:
+                  type: string
+                  description: o tempo inicial da sessao.
+                  example: "16:30:00"
+                sessao_fim:
+                  type: string
+                  description: o tempo final da sessao.
+                  example: "17:30:00"
+                sessao_tempo_total:
+                  type: number
+                  description: O tempo total da sessao (em minutos).
+                  example: 60
+                sessao_meta_id:
+                  type: integer
+                  description: O id da meta que vai ter essa sessao.
+                  example: 1
+                sessao_usu_id:
+                  type: integer
+                  description: O id do usuario que tem essa sessao.
+                  example: 3
+      responses:
+        201:
+          description: sessao criada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado
+        400:
+          description: Requisição Inválida
+        500:
+          description: o usuario ou meta com o id enviado nao existe
+  /sessoes/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Acessa as informacoes de uma sessao
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  #Adicionar id e datas
+                  sessao_inicio:
+                    type: string
+                  sessao_fim:
+                    type: string
+                  sessao_tempo_total:
+                    type: number
+                  sessao_usu_id:
+                    type: integer
+                  sessao_meta_id:
+                    type: integer
+        404:
+          description: Essa sessao nao foi encontrada
+
+    delete:
+      summary: Apaga uma sessao
+      responses:
+        200:
+          description: OK
+        404:
+          description: Essa sessao nao foi encontrada
+
+    put:
+      summary: Altera uma sessao
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessao_inicio:
+                  type: string
+                  description: o tempo inicial da sessao.
+                  example: "16:30:00"
+                sessao_fim:
+                  type: string
+                  description: o tempo final da sessao.
+                  example: "17:30:00"
+                sessao_tempo_total:
+                  type: number
+                  description: O tempo total da sessao (em minutos).
+                  example: 60
+                sessao_meta_id:
+                  type: integer
+                  description: O id da meta que vai ter essa sessao.
+                  example: 1
+                sessao_usu_id:
+                  type: integer
+                  description: O id do usuario que tem essa sessao.
+                  example: 3
+      responses:
+        200:
+          description: OK
+        404:
+          description: Nao encontrado
+        500:
+          description: o usuario ou meta com o id enviado nao existe
+
+  /save-study-time:
+    get:
+        summary: Retorna os tempos de estudo salvos
+        description: Recupera uma lista de todos os tempos de estudo registrados no banco de dados.
+        responses:
+          '200':
+            description: Lista de tempos de estudo
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: ID do registro.
+                        example: 1
+                      time:
+                        type: integer
+                        description: Tempo de estudo em segundos.
+                        example: 300
+                      created_at:
+                        type: string
+                        format: date-time
+                        description: Data e hora do registro.
+                        example: "2024-12-03T10:15:30Z"
+                      updated_at:
+                        type: string
+                        format: date-time
+                        description: Data e hora da última atualização.
+                        example: "2024-12-03T10:20:45Z"
+          '500':
+            description: Erro interno do servidor
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      example: "Erro ao recuperar os dados."
+
+    post:
+      summary: Salva o tempo de estudo de um usuário
+      description: Endpoint para salvar o tempo de estudo no banco de dados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                time_spent:
+                  type: integer
+                  description: Tempo de estudo em segundos.
+                  example: 300
+                user_id:
+                  type: integer
+                  description: id do usuario.
+                  example: 3
+              required:
+                - time_spent
+                - user_id
+      responses:
+        '201':
+          description: Tempo salvo com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Tempo salvo com sucesso!"
+        '400':
+          description: Erro de validação
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "O campo 'time' é obrigatório."
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Erro ao salvar no banco de dados."
+
+  /save-study-time/{id}:
+    get:
+      summary: Acessa as informações de um cronômetro
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: ID do usuário
+      responses:
+        200:
+          description: Informações do cronômetro
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        user_id:
+                          type: integer
+                        time_spent:
+                          type: integer
+
+components:
+  schemas:
+    usuario:
+      type: object
+      description: Um usuario para armazenar objetos.
+      properties:
+        nome:
+          type: string
+          description: O nome do usuário.
+          example: Jorge
+        idade:
+          type: integer
+          description: A idade do usuário.
+          example: 18
+        senha:
+          type: string
+          description: A senha da conta do usuário.
+          example: pa156af
+        admin:
+          type: boolean
+          description: Se o usuário é um admin (1) ou um usuário normal (0).
+          example: 1
+        pontuacao:
+          type: number
+          description: a pontuacao atual do usuário.
+          example: 19546
