@@ -3,6 +3,9 @@ import axios from "axios";
 import axiosInstance from "axios";
 
 const StudyTimer = () => {
+
+    const usuario = localStorage.getItem("usuario");
+    const dadosUsuario = JSON.parse(usuario);
     const [time, setTime] = useState(() => {
         // Recupera o tempo do Local Storage ou inicia com 0
         const savedTime = localStorage.getItem("study-time");
@@ -31,7 +34,7 @@ const StudyTimer = () => {
     const saveTime = async () => {
         try {
             await axios.post("http://localhost:8000/api/save-study-time", { 
-                user_id: 1, // Substitua pelo ID real do usuário
+                user_id: dadosUsuario[0].id, // Substitua pelo ID real do usuário
                 time_spent: time, // Envia o tempo atual em segundos
             });
             alert("Tempo salvo com sucesso!");
